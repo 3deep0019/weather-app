@@ -1,0 +1,79 @@
+body{
+	color: white;
+	background: url('/img/bg.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	
+	font-family: arial;
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 0 16px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-content{
+	flex-grow: 1;
+}
+ #message{
+ 	margin-top: 40px;
+ }
+footer{
+	
+	border-top: 1px solid #eee;
+	margin-top: 16px;
+	padding:16px 0;
+
+}
+
+header{
+	margin-top: 16px;
+	margin-bottom: 48px;
+}
+
+h1{
+	font-size: 64px;
+	margin-bottom: 16px;
+}
+
+header a{
+	color: white;
+	font-size: 25px;
+	margin-right: 100px;
+	text-decoration: none;
+}
+#myPic{
+	width: 250px;
+}
+
+input{
+	border:1px solid #cccccc;
+	padding: 8px;
+	width: 80%
+}
+
+button{
+	cursor: pointer;
+	border:1px solid #cccccc;
+	background-color: #cccccc;
+	padding: 8px; 
+}
+@media screen and (min-width: 375px){
+	header{
+	margin-top: 50px;
+	margin-bottom: 48px;
+}
+header a{
+	font-size: 20px;
+	margin-right: 50px;
+}
+input{
+	width: 70%
+}
+#error_message{
+	text-align: center;
+	font-size: 40px;
+}
+}
