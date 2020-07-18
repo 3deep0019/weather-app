@@ -8,9 +8,13 @@ const forecast = (lati,long,callback)=>{
  		callback('Unable to Find the LOCATION',undefined)
  	}
  	else{
- 		callback(undefined,body.current.weather_descriptions[0]+'. It is currently ' + body.current.temperature + ' degree outside.Its feels like ' + body.current.feelslike + ' degree outside.And the humidity is ' + body.current.humidity)
+ 		const data = body.current.weather_descriptions[0]+'. It is currently ' + body.current.temperature + ' degree outside.Its feels like ' + body.current.feelslike + ' degree outside.And the humidity is ' + body.current.humidity
+ 		callback(undefined,{
+ 			data,
+ 			placeName:body.location.name
+ 		})
 }
 })
 }
 
-module.exports = forecast
+module.exports = forecast 
