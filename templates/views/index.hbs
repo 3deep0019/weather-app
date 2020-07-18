@@ -3,11 +3,10 @@
 <head>
 	<title>Weather</title>
 	<link rel="icon" href="/img/weather.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<meta name="theme-color" content="#6B6F72"/>
-    	<meta name="apple-mobile-web-app-capable" content="yes"/>
-    	<meta name="apple-mobile-web-app-status-bar-style" content="#6B6F72"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="#6B6F72"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/styles.css">
 
@@ -19,7 +18,10 @@
 		<form>
 			<input type="text" name="" placeholder="Location">
 			<button>Search</button>
-		</form>	
+		</form>
+		<br>	
+		<p>Or</p>
+		<button id="geoloc">Get Location</button>
 		<div id="message">
 			<p role="alert" id="message_1"></p>
 			<p role="alert" id="message_2"></p>
