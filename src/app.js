@@ -4,12 +4,11 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 
 
 app.use(express.static(path.join(__dirname,'../public')))
-console.log(path.join(__dirname,'../public'))
 
 
 
@@ -54,18 +53,37 @@ app.get('/weather',(req,res)=>{
  		return res.send({
  			error})
  	}
- 	forecast(latitude, longitude, (error, forecastData) => {
+ 	forecast(latitude, longitude, (error, forecastData, p) => {
 	  if (error) {
 	  	return res.send({
 	  		error})
 	  }
 	  res.send({
 	  	Location:placeName,
-	  	Forecast:forecastData,
+	  	Forecast:forecastData.data,
 	  	address:req.query.address
 	  })
 	})
  })
+})
+ 
+app.get('/weather/getlocation',(req,res)=>{
+	if (!req.query.lati && !req.query.longi) {
+		return res.send({
+			error:'Geo Location Not Supported'
+		})
+	}
+	forecast(req.query.lati, req.query.longi, (error, forecastData) => {
+	  if (error) {
+	  	return res.send({
+	  		error})
+	  }
+	  res.send({
+	  	Location:forecastData.placeName,
+	  	Forecast:forecastData.data,
+	  	address:req.query.address
+	  })
+	})
 })
 
 app.get('/help/*',(req,res)=>{
@@ -83,6 +101,6 @@ app.get('*',(req,res)=>{
 	})
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
 	console.log('Server is running on port ' + port)
 })
